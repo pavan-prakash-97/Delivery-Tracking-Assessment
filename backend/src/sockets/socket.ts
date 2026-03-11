@@ -59,31 +59,3 @@ export const setupSocket = (io: Server) => {
     });
   });
 };
-
-// import { Server } from "socket.io";
-
-// export const setupSocket = (io: Server) => {
-//   io.on("connection", (socket) => {
-//     console.log("Client connected:", socket.id);
-
-//     let lat = 18.5204;
-//     let lon = 73.8567;
-
-//     const interval = setInterval(() => {
-//       lat += (Math.random() - 0.5) * 0.001;
-//       lon += (Math.random() - 0.5) * 0.001;
-
-//       const location = { lat, lon };
-
-//       // console.log("socket:", socket);
-//       console.log("Sending location:", location);
-
-//       socket.emit("agentLocation", location);
-//     }, 2000);
-
-//     socket.on("disconnect", () => {
-//       console.log("Client disconnected:", socket.id);
-//       clearInterval(interval);
-//     });
-//   });
-// };
