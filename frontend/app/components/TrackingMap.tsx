@@ -108,7 +108,7 @@ export default function TrackingMap({ lat, lon, route }: Props) {
   return (
     <MapContainer
       center={[lat, lon]}
-      zoom={14}
+      zoom={20}
       style={{ height: "600px", width: "100%" }}
     >
       <Recenter lat={lat} lon={lon} />

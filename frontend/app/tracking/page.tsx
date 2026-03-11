@@ -21,7 +21,7 @@ export default function TrackingPage() {
   const [delivered, setDelivered] = useState(false);
 
   useEffect(() => {
-    const socket: Socket = io("http://localhost:5000");
+    const socket: Socket = io("openobserve.techstark.in");
 
     socket.on("agentLocation", (data: Location) => {
       setLocation(data);
@@ -120,6 +120,15 @@ export default function TrackingPage() {
       >
         <h2>🚚 Live Delivery Agent Tracking</h2>
 
+      </div>
+
+      <TrackingMap
+        lat={location.lat}
+        lon={location.lon}
+        route={location.route}
+      />
+
+
         <Link
           href="/"
           style={{
@@ -135,15 +144,8 @@ export default function TrackingPage() {
             width: "fit-content",
           }}
         >
-          📍 Back to Address Page
+          ❮ &nbsp; Back to Address Page
         </Link>
-      </div>
-
-      <TrackingMap
-        lat={location.lat}
-        lon={location.lon}
-        route={location.route}
-      />
 
       {delivered && <DeliveryModal onRestart={restartDelivery} />}
     </div>

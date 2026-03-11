@@ -57,7 +57,7 @@ export default function InstallPWAButton() {
         border: "none",
         borderRadius: "8px",
         cursor: "pointer",
-        height: 100,
+        height: 60,
       }}
     >
       📲 Install App

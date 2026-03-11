@@ -14,12 +14,11 @@ const MapClient = dynamic(() => import("./components/MapClient"), {
 
 export default function Home() {
   const [location, setLocation] = useState<Address | null>(null);
-  const [permissionDenied, setPermissionDenied] = useState(false);
 
   useEffect(() => {
     const detectLocation = () => {
       if (!navigator.geolocation) {
-        setPermissionDenied(true);
+
         return;
       }
 
@@ -29,9 +28,10 @@ export default function Home() {
             lat: pos.coords.latitude,
             lon: pos.coords.longitude,
           });
+
         },
-        () => {
-          setPermissionDenied(true);
+        (error) => {
+          alert("LOCATION SEEMS TO BE DISABLED, PLEASE ENABLE IT IN SETTINGS AND REFRESH AGAIN");
         },
         {
           enableHighAccuracy: true,
@@ -58,7 +58,7 @@ export default function Home() {
           gap: 20,
         }}
       >
-        {permissionDenied && <AddressInput onLocation={setLocation} />}
+        <AddressInput onLocation={setLocation} />
 
         <AddressFields address={location ?? undefined} />
 
@@ -66,8 +66,9 @@ export default function Home() {
         <Link
           href="/tracking"
           style={{
-            display: "inline-flex",
+            display: "flex",
             alignItems: "center",
+            justifyContent: 'center',
             gap: "8px",
             padding: "12px 18px",
             background: "#2563eb",
@@ -75,20 +76,22 @@ export default function Home() {
             borderRadius: "8px",
             fontWeight: 500,
             textDecoration: "none",
-            width: "fit-content",
+            width: "100%",
+            maxWidth: 400,
+            textAlign: 'center'
           }}
         >
           🚚 Go to Live Tracking
         </Link>
       </div>
 
-      <InstallPWAButton />
 
       <MapClient
         lat={location?.lat}
         lon={location?.lon}
         onPinUpdate={(lat, lon) => setLocation({ lat, lon })}
       />
+      <InstallPWAButton />
     </div>
   );
 }
