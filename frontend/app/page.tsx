@@ -24,6 +24,7 @@ export default function Home() {
 
       navigator.geolocation.getCurrentPosition(
         (pos) => {
+
           setLocation({
             lat: pos.coords.latitude,
             lon: pos.coords.longitude,
@@ -60,15 +61,13 @@ export default function Home() {
       >
         <AddressInput onLocation={setLocation} />
 
-        <AddressFields address={location ?? undefined} />
-
         {/* Navigation Button */}
         <Link
           href="/tracking"
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: 'center',
+            justifyContent: "center",
             gap: "8px",
             padding: "12px 18px",
             background: "#2563eb",
@@ -78,18 +77,19 @@ export default function Home() {
             textDecoration: "none",
             width: "100%",
             maxWidth: 400,
-            textAlign: 'center'
+            textAlign: "center",
           }}
         >
           🚚 Go to Live Tracking
         </Link>
       </div>
 
+      <AddressFields address={location ?? undefined} />
 
       <MapClient
         lat={location?.lat}
         lon={location?.lon}
-        onPinUpdate={(lat, lon) => setLocation({ lat, lon })}
+        onPinUpdate={(address) => setLocation(address)}
       />
       <InstallPWAButton />
     </div>

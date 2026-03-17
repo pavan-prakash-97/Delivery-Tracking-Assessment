@@ -2,11 +2,10 @@ export type Address = {
   lat: number;
   lon: number;
   displayName?: string;
-  road?: string;
   city?: string;
   state?: string;
-  postcode?: string;
   country?: string;
+  area?: string;
 };
 
 export type AddressSuggestion = {

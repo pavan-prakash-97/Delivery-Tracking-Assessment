@@ -20,6 +20,7 @@ export default function AddressInput({ onLocation }: AddressInputProps) {
     setSuggestions([]);
     onLocation(data);
   };
+  
 
   const handleChange = async (value: string) => {
     setAddress(value);
