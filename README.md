@@ -2,11 +2,6 @@
 
 A real-time delivery tracking Progressive Web App (PWA) that simulates a delivery agent moving toward a destination using the shortest road route. The application displays live tracking on an interactive map with a moving bike marker, route updates, and delivery completion notification.
 
-## 🌐 Live Demo
-
-🔗 Demo / Deployment:  
-https://delivery-assessment.techstark.in
-
 ## 📂 GitHub Repository
 
 🔗 Source Code:  
