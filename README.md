@@ -5,7 +5,7 @@ A real-time delivery tracking Progressive Web App (PWA) that simulates a deliver
 ## 🌐 Live Demo
 
 🔗 Demo / Deployment:  
-https://stremio.techstark.in/
+https://delivery-assessment.techstark.in
 
 ## 📂 GitHub Repository
 
